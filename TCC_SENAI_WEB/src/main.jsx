@@ -7,11 +7,12 @@ import {
 import "./index.css";
 
 import NavBar from "./components/NavBar";
+import Map from "./pages/Map";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <></>,
+    element: <Map/>,
   },
 ]);
 

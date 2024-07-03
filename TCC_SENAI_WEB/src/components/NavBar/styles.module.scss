@@ -9,10 +9,25 @@
 }
 
 .navbar {
-    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    margin-bottom: 3%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .boschlogo {
     width: 8vw;
+}
+
+.link {
+    font-size: large;
+    color: black;
+}
+
+.link:hover {
+    color: #007bc0;
+    cursor: pointer;
 }

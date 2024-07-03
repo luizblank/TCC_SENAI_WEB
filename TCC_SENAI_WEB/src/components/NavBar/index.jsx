@@ -6,6 +6,7 @@ export default function NavBar() {
             <div className={styles.boschcolors}/>
             <div className={styles.navbar}>
                 <img src='boschlogo.png' className={styles.boschlogo}/>
+                <a className={styles.link}>Login</a>
             </div>
         </>
     )
