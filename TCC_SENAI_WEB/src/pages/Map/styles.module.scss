@@ -1,6 +1,15 @@
 h1 {
     text-align: center;
     color: black;
+    margin-top: 70px;
+    margin-bottom: 35px;
+}
+
+.plant {
+    border-radius: 10px;
+    width: 1200px;
+    height: auto;
+    margin-bottom: 35px;
 }
 
 .container {
@@ -18,4 +27,5 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
