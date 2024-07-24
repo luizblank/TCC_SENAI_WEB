@@ -1,12 +1,11 @@
 import styles from './styles.module.scss';
 
-export default function Map() {
+export default function Processes() {
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.col}>
-                    <h1>Setores</h1>
-                    <img className={styles.plant} src='planta.png'/>
+
                 </div>
             </div>
         </>
