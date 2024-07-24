@@ -1,3 +1,8 @@
+.component {
+    position: absolute;
+    z-index: 1000;
+}
+
 .boschcolors {
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,11 +20,13 @@
     align-items: center;
     padding: 15px 30px;
     margin-bottom: 3%;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .boschlogo {
-    width: 8vw;
+    width: 160px;
+    height: auto;
 }
 
 .link {
