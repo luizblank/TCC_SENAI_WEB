@@ -1,13 +1,13 @@
 h1 {
     text-align: center;
     color: black;
-    margin-top: 70px;
+    margin-top: 90px;
     margin-bottom: 35px;
 }
 
 .plant {
     border-radius: 10px;
-    width: 1200px;
+    width: 1500px;
     height: auto;
     margin-bottom: 35px;
 }
@@ -28,4 +28,207 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.ct101 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-stretch: 150%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 6px;
+    width: 250px;
+    height: 100px;
+    border-radius: 0;
+    transform: skew(-64deg, 16deg);
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.288);
+    margin: 0 0 250px 100px;
+}
+
+.ct101:hover {
+    background-color: rgba(0, 206, 0, 0.58);
+    border: 2px solid green;
+}
+
+.ct101:focus {
+    outline: 0;
+    border: 0;
+}
+
+.ct201 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-stretch: 150%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 6px;
+    width: 190px;
+    height: 130px;
+    border-radius: 0;
+    transform: skew(-56deg, 18deg);
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.288);
+    margin: 0 0 80px 670px;
+}
+
+.ct201:hover {
+    background-color: rgba(0, 206, 0, 0.58);
+    border: 2px solid green;
+}
+
+.ct201:focus {
+    outline: 0;
+    border: 0;
+}
+
+.ct210 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-stretch: 150%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 6px;
+    width: 130px;
+    height: 35px;
+    border-radius: 0;
+    transform: skew(-59deg, 17deg);
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.288);
+    margin: 95px 0 0 400px;
+}
+
+.ct210:hover {
+    background-color: rgba(0, 206, 0, 0.58);
+    border: 2px solid green;
+}
+
+.ct210:focus {
+    outline: 0;
+    border: 0;
+}
+
+.ct303 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-stretch: 150%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 6px;
+    width: 165px;
+    height: 110px;
+    border-radius: 0;
+    transform: skew(-65deg, 24deg);
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.288);
+    margin: 10px 600px 0 0;
+}
+
+.ct303:hover {
+    background-color: rgba(0, 206, 0, 0.58);
+    border: 2px solid green;
+}
+
+.ct303:focus {
+    outline: 0;
+    border: 0;
+}
+
+.ct304 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-stretch: 150%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 6px;
+    width: 60px;
+    height: 120px;
+    border-radius: 0;
+    transform: skew(-63deg, 24deg);
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.288);
+    margin: 130px 365px 0 0;
+}
+
+.ct304:hover {
+    background-color: rgba(0, 206, 0, 0.58);
+    border: 2px solid green;
+}
+
+.ct304:focus {
+    outline: 0;
+    border: 0;
+}
+
+.ct401 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-stretch: 150%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 6px;
+    width: 170px;
+    height: 85px;
+    border-radius: 0;
+    transform: skew(-58deg, 22deg);
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.288);
+    margin: 195px 0 0 30px;
+}
+
+.ct401:hover {
+    background-color: rgba(0, 206, 0, 0.58);
+    border: 2px solid green;
+}
+
+.ct401:focus {
+    outline: 0;
+    border: 0;
+}
+
+.ct401a {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-stretch: 150%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 6px;
+    width: 185px;
+    height: 100px;
+    border-radius: 0;
+    transform: skew(-60deg, 24deg);
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.288);
+    margin: 405px 320px 0 0;
+}
+
+.ct401a:hover {
+    background-color: rgba(0, 206, 0, 0.58);
+    border: 2px solid green;
+}
+
+.ct401a:focus {
+    outline: 0;
+    border: 0;
 }
