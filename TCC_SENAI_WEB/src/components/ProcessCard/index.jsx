@@ -1,5 +1,4 @@
 import styles from './styles.module.scss';
-import camera from '../../../public/camera.jpg'
 import processo from '../../../public/processo.png'
 import VideoStream from '../VideoStream';
 

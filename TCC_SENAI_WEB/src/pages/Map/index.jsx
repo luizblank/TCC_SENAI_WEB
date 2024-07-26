@@ -17,7 +17,7 @@ export default function Map() {
                     <button onClick={handleClick} className={styles.ct303} id='ct303' name='ct303'>303</button>
                     <button onClick={handleClick} className={styles.ct304} id='ct304' name='ct304'>304</button>
                     <button onClick={handleClick} className={styles.ct401} id='ct401' name='ct401'>401</button>
-                    <button onClick={handleClick} className={styles.ct401a} id='ct401a' name='ct401a'>401-A</button>
+                    <button onClick={handleClick} className={styles.ct401a} id='ct401-A' name='ct401-A'>401-A</button>
                 </div>
             </div>
         </>
