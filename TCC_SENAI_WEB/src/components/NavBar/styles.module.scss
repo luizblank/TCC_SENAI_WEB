@@ -1,12 +1,13 @@
 .component {
     position: absolute;
+    margin-bottom: 5vh;
     z-index: 1000;
 }
 
 .boschcolors {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(boschcolors.jpg);
+    background-image: url(../../../public/boschcolors.jpg);
     width: 100vw;
     height: 6px;
     margin: 0;

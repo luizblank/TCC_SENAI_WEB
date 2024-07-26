@@ -1,0 +1,51 @@
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.cam {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 0px 10px 10px 0px;
+    height: 250px;
+    width: 250px;
+    background-color: #EDEDED;
+    padding: 20px;
+    color: black;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card_image {
+    width: 35px;
+    height: 35px;
+}
+
+.card_title {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.card_content {
+    width: 100%;
+    height: auto;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+}

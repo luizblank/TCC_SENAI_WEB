@@ -1,4 +1,5 @@
 import styles from './styles.module.scss';
+import boschlogo from '../../../public/boschlogo.png'
 
 export default function NavBar() {
     return (
@@ -6,7 +7,7 @@ export default function NavBar() {
             <div className={styles.boschcolors}/>
             <div className={styles.navbar}>
                 <a href='/' style={{ display: 'flex', alignItems: 'center' }}>
-                    <img src='boschlogo.png' className={styles.boschlogo}/>
+                    <img src={boschlogo} className={styles.boschlogo}/>
                 </a>
                 <a href='/login' className={styles.link}>Login</a>
             </div>

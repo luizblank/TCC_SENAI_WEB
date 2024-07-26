@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     element: <Map/>,
   },
   {
-    path: "/processes",
+    path: "/processes/:sector",
     element: <Processes/>,
   },
   {
