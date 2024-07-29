@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 
 export default function Map() {
     const handleClick = (e) => {
-        window.open(`/processes/${e.target.id}`);
+        window.open(`/processes/${e.target.id}`, "_self");
     }
 
     return (
