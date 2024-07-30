@@ -25,7 +25,7 @@ export default function Processes() {
                 { 
                     data.length > 0 && 
                     data.map((item, i) => {
-                        return <ProcessCard process={item.process} approved={item.Approved} denied={item.Denied} scanned={item.Scanned} key={i}/>
+                        return <ProcessCard process={item.Process} approved={item.Approved} denied={item.Denied} scanned={item.Scanned} key={i}/>
                     })
                 }
             </div>
