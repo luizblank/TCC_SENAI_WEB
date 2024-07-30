@@ -1,21 +1,31 @@
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import ProcessCard from '../../components/ProcessCard';
 import styles from './styles.module.scss';
+import { api } from '../../API/api';
 
 export default function Processes() {
-    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var [data, setData] = useState([]);
     var { sector } = useParams();
-    sector = "Ct-" + sector.slice(2);
+    const displaySector = "Ct-" + sector.slice(2);
+
+    useEffect(() => {
+        api
+            .get(`/machine/getmachinebysector/${sector}`)
+            .then((res) => {
+                setData(res.data.machines);
+                console.log(res.data.machines);
+            })
+    }, []);
 
     return (
         <>
-            <h1 className={styles.title}>{sector}</h1>
+            <h1 className={styles.title}>{displaySector}</h1>
             <div className={styles.container}>
-                {
-                    array.map((a, i) => {
-                        return (
-                            <ProcessCard key={i}/>
-                        )
+                { 
+                    data.length > 0 && 
+                    data.map((item, i) => {
+                        return <ProcessCard process={item.process} approved={item.Approved} denied={item.Denied} scanned={item.Scanned} key={i}/>
                     })
                 }
             </div>
