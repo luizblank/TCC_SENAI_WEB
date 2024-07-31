@@ -1,6 +1,38 @@
+import { useEffect, useState } from 'react';
+import { api } from '../../API/api';
 import styles from './styles.module.scss';
 
 export default function Login() {
+    const [id, setId] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [idError, setIdError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+
+    useEffect(() => {
+        if (!id)
+            return;
+        if (id.length !== 6) {
+            setIdError(true);
+        } else {
+            setIdError(false);
+        }
+
+        if (!password)
+            return;
+        if (password.length < 12) {
+            setPasswordError(true);
+        } else {
+            setPasswordError(false);
+        }
+    }, [id, password])        
+
+    const formSubmit = (e) => {
+        e.preventDefault();
+        api
+            .get('/api/')
+    }
+
     return (
         <>
             <div className={styles.container}>
@@ -8,17 +40,31 @@ export default function Login() {
                     <img className={styles.roberto} src='roberto.webp'/>
                 </div>
                 <div className={styles.col}>
-                    <form className={styles.card}>
+                    <form className={styles.card} onSubmit={formSubmit} autoComplete='off'>
                         <div className={styles.title}>Login</div>
                         <div className={styles.input_flex} style={{ marginBottom: '20px' }}>
                             <label>ID</label>
-                            <input name='id' id='id'/>
+                            <input
+                                style={{ outline: idError ? '1px solid red' : 'none' }}
+                                name='id' id='id'
+                                onChange={(e) => setId(e.target.value)}
+                            />
                         </div>
                         <div className={styles.input_flex}>
                             <label>Senha</label>
-                            <input name='password' id='password'/>
+                            <input
+                                style={{ outline: passwordError ? '1px solid red' : 'none' }}
+                                type='password' name='password' id='password'
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                         </div>
-                        <button>Submit</button>
+                        <button
+                            className={styles.submitBtn}
+                            disabled={idError || passwordError ||
+                                id.length != 6 || password.length < 12} 
+                        >
+                            Submit
+                        </button>
                     </form>
                 </div>
             </div>

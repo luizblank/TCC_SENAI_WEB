@@ -10,6 +10,7 @@ export default function NavBar() {
                     <img src={boschlogo} className={styles.boschlogo}/>
                 </a>
                 <a href='/login' className={styles.link}>Login</a>
+                <a href='/login' className={styles.link}>Logout</a>
             </div>
         </div>
     )
