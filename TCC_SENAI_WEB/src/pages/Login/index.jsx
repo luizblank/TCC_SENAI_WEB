@@ -44,7 +44,8 @@ export default function Login() {
             api
                 .post('/api/userlogin', { id: id, password: encrypt })
                 .then((res) => {
-                    console.log(res.data)
+                    sessionStorage.setItem("token", res.data.jwt);
+                    window.open('/', '_self');
                 })
                 .catch((res) => {
                     setResError(res.response.data.error);
