@@ -2,12 +2,18 @@ import { useEffect, useState } from 'react';
 import { api } from '../../API/api';
 import styles from './styles.module.scss';
 
+import CryptoJS from "crypto-js";
+import { SECRET } from "../../env"
+
 export default function Login() {
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
 
     const [idError, setIdError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+
+    const [isError, setIsError] = useState(true);
+    const [resError, setResError] = useState('deu erro');
 
     useEffect(() => {
         if (!id)
@@ -29,8 +35,19 @@ export default function Login() {
 
     const formSubmit = (e) => {
         e.preventDefault();
-        api
-            .get('/api/')
+        try {
+            const encrypt = CryptoJS.AES.encrypt(password, SECRET).toString();
+            api
+                .post('/api/userlogin', { id: id, password: encrypt })
+                .then((res) => {
+                    console.log(res.data)
+                })
+                .catch((res) => {
+                    console.log(res.response.data)
+                })
+        } catch(error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -66,6 +83,9 @@ export default function Login() {
                             Submit
                         </button>
                     </form>
+                    <div className={styles.error}>
+                        sadasdas
+                    </div>
                 </div>
             </div>
         </>
