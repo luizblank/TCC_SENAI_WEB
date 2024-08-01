@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../API/api';
 import styles from './styles.module.scss';
+import { GoAlert } from "react-icons/go";
+import { IoMdClose } from "react-icons/io";
 
 import CryptoJS from "crypto-js";
 import { SECRET } from "../../env"
@@ -12,8 +14,8 @@ export default function Login() {
     const [idError, setIdError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
-    const [isError, setIsError] = useState(true);
-    const [resError, setResError] = useState('deu erro');
+    const [isError, setIsError] = useState(undefined);
+    const [resError, setResError] = useState('');
 
     useEffect(() => {
         if (!id)
@@ -23,7 +25,9 @@ export default function Login() {
         } else {
             setIdError(false);
         }
-
+    }, [id])
+    
+    useEffect(() => {
         if (!password)
             return;
         if (password.length < 12) {
@@ -31,7 +35,7 @@ export default function Login() {
         } else {
             setPasswordError(false);
         }
-    }, [id, password])        
+    }, [password])
 
     const formSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +47,8 @@ export default function Login() {
                     console.log(res.data)
                 })
                 .catch((res) => {
-                    console.log(res.response.data)
+                    setResError(res.response.data.error);
+                    setIsError(true);
                 })
         } catch(error) {
             console.log(error)
@@ -66,6 +71,9 @@ export default function Login() {
                                 name='id' id='id'
                                 onChange={(e) => setId(e.target.value)}
                             />
+                            <div style={{ position: 'relative' }}>
+                                <div className={styles.input_error} style={{ display: idError ? 'block' : 'none' }}>Usuário inválido</div>
+                            </div>
                         </div>
                         <div className={styles.input_flex}>
                             <label>Senha</label>
@@ -74,6 +82,9 @@ export default function Login() {
                                 type='password' name='password' id='password'
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <div style={{ position: 'relative' }}>
+                                <div className={styles.input_error} style={{ display: passwordError ? 'block' : 'none' }}>Senha inválida</div>
+                            </div>
                         </div>
                         <button
                             className={styles.submitBtn}
@@ -83,8 +94,12 @@ export default function Login() {
                             Submit
                         </button>
                     </form>
-                    <div className={styles.error}>
-                        sadasdas
+                    <div className={styles.error} style={{ display: isError ? 'flex' : 'none' }}>
+                            <button className={styles.close} onClick={() => { setIsError(!isError) }}>
+                                <IoMdClose/>
+                            </button>
+                            <GoAlert style={{ marginRight: '15px', strokeWidth: 1 }}/>
+                            { resError }
                     </div>
                 </div>
             </div>
