@@ -42,7 +42,7 @@ export default function Login() {
         try {
             const encrypt = CryptoJS.AES.encrypt(password, SECRET).toString();
             api
-                .post('/api/userlogin', { id: id, password: encrypt })
+                .post('/user/userlogin', { id: id, password: encrypt })
                 .then((res) => {
                     sessionStorage.setItem("token", res.data.jwt);
                     window.open('/', '_self');
@@ -60,7 +60,7 @@ export default function Login() {
         <>
             <div className={styles.container}>
                 <div className={styles.col}>
-                    <img className={styles.roberto} src='roberto.webp'/>
+                    <img className={styles.roberto} src='roberto.png'/>
                 </div>
                 <div className={styles.col}>
                     <form className={styles.card} onSubmit={formSubmit} autoComplete='off'>
@@ -69,7 +69,7 @@ export default function Login() {
                             <label>ID</label>
                             <input
                                 style={{ outline: idError ? '1px solid red' : 'none' }}
-                                name='id' id='id'
+                                name='id' id='id' className={styles.loginInput}
                                 onChange={(e) => setId(e.target.value)}
                             />
                             <div style={{ position: 'relative' }}>
@@ -80,7 +80,7 @@ export default function Login() {
                             <label>Senha</label>
                             <input
                                 style={{ outline: passwordError ? '1px solid red' : 'none' }}
-                                type='password' name='password' id='password'
+                                type='password' name='password' id='password' className={styles.loginInput}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <div style={{ position: 'relative' }}>

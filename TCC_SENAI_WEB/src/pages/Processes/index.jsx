@@ -11,7 +11,7 @@ export default function Processes() {
 
     useEffect(() => {
         api
-            .get(`/machine/getmachinebysector/${sector}`)
+            .get(`/machine/getmachinesbysector/${sector}`)
             .then((res) => {
                 setData(res.data.machines);
                 console.log(res.data.machines);
@@ -20,8 +20,14 @@ export default function Processes() {
 
     return (
         <>
-            <h1 className={styles.title}>{displaySector}</h1>
             <div className={styles.container}>
+                <div className={styles.nav}>
+                    <input id='search' name='id'/>
+                    <h1 className={styles.title}>
+                        {displaySector}
+                    </h1>
+                    <button>Verify Data</button>
+                </div>
                 { 
                     data.length > 0 && 
                     data.map((item, i) => {
