@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import error from "../../../public/error.png"
 import io from "socket.io-client";
 
-const socket = io("http://10.196.20.68:5000");
+const socket = io("http://10.196.49.4:5000");
 
 const VideoStream = () => {
     const [image, setImage] = useState("");
