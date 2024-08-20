@@ -1,1 +1,1 @@
-export const SECRET = "omgpasswordenv123";
+export const SECRET = "omgpassword123";

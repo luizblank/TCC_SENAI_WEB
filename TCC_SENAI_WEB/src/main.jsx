@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import Map from "./pages/Map";
 import Login from "./pages/Login";
 import Processes from "./pages/Processes";
+import Authenticate from "./pages/Authenticate";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login/>,
+  },
+  {
+    path: "/auth",
+    element: <Authenticate/>,
   },
 ]);
 
