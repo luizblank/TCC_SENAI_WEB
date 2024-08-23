@@ -1,17 +1,11 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import { jwtDecode } from 'jwt-decode';
+import { sign } from 'jsonwebtoken';
 import CryptoJS from "crypto-js";
 import { SECRET } from '../../env';
 
 export default function Authentication() {
-    const [code1, setCode1] = useState("");
-    const [code2, setCode2] = useState("");
-    const [code3, setCode3] = useState("");
-    const [code4, setCode4] = useState("");
-    const [code5, setCode5] = useState("");
-    const [code6, setCode6] = useState("");
-
     const [invalidCode, setInvalidCode] = useState(false);
 
     const formSubmit = (e) => {
@@ -20,9 +14,26 @@ export default function Authentication() {
             const authtoken = sessionStorage.getItem("authtoken");
             const decoded = jwtDecode(JSON.stringify(authtoken));
             const decrypted = CryptoJS.AES.decrypt(decoded.code, SECRET).toString(CryptoJS.enc.Utf8);
-            const writtenCode = code1 + code2 + code3 + code4 + code5 + code6;
+
+            var writtenCode = ""
+            for (var i = 0; i < 6; i++) {
+                writtenCode += e.target[i].value;
+            }
+            
+            const usertoken = sign(
+                {
+                    adm: decoded.adm,
+                    id: decoded.id 
+                },
+                SECRET,
+                {
+                    expiresIn: "1 day",
+                }
+            );
+            const encrypted = CryptoJS.AES.encrypt(usertoken, SECRET);
+
             if (writtenCode == decrypted) {
-                sessionStorage.setItem("token", authtoken); // tem que ajeita isso aqui
+                sessionStorage.setItem("usertoken", encrypted);
                 window.open('/', '_self');
             } else {
                 setInvalidCode(true);
@@ -31,43 +42,69 @@ export default function Authentication() {
             console.log(e)
         }
     }
+
+    function onPaste(e) {
+        const pasted = e.clipboardData.getData("text/plain").split('');
+        const form = document.getElementsByClassName("_authInput_1et5c_7")
+        pasted.forEach((item, i) => {
+            form[i].value = item
+        });
+    }
+
+    function nextInput(e) {
+        if (e.target.value == "") {
+            const crrInput = e.target.id;
+            const nextInput = document.getElementById(
+                crrInput.substring(0, 4) + `${parseInt(crrInput.substring(4)) - 1}`
+            )
+            nextInput.focus();
+            return;
+        }
+
+        const crrInput = e.target.id;
+        const nextInput = document.getElementById(
+            crrInput.substring(0, 4) + `${parseInt(crrInput.substring(4)) + 1}`
+        )
+        nextInput.focus();
+    }
     
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.col}>
-                    <form className={styles.card} onSubmit={formSubmit} autoComplete='off'>
+                    <form className={styles.card} onSubmit={formSubmit} autoComplete='off' id='form'>
                         <div className={styles.title}>Authentication</div>
                         <div className={styles.instruction}>Enter the authentication code sent to your email to sign in.</div>
                         <div className={styles.inputFlex}>
                             <input
-                                name='id' id='id' className={styles.authInput} maxLength={1}
-                                onChange={(e) => setCode1(e.target.value)}
+                                name='code1' id='code1' className={styles.authInput} maxLength={1}
+                                onPaste={onPaste} onChange={nextInput}
                                 style={{ outline: invalidCode ? '1px solid red' : 'none' }}
                             />
                             <input
-                                name='id' id='id' className={styles.authInput} maxLength={1}
-                                onChange={(e) => setCode2(e.target.value)}
+                                name='code2' id='code2' className={styles.authInput} maxLength={1}
+                                onPaste={onPaste} onChange={nextInput}
                                 style={{ outline: invalidCode ? '1px solid red' : 'none' }}
                             />
                             <input
-                                name='id' id='id' className={styles.authInput} maxLength={1}
-                                onChange={(e) => setCode3(e.target.value)}
+                                name='code3' id='code3' className={styles.authInput} maxLength={1}
+                                onPaste={onPaste} onChange={nextInput}
                                 style={{ outline: invalidCode ? '1px solid red' : 'none' }}
                             />
                             <input
-                                name='id' id='id' className={styles.authInput} maxLength={1}
-                                onChange={(e) => setCode4(e.target.value)}
+                                name='code4' id='code4' className={styles.authInput} maxLength={1}
+                                onPaste={onPaste} onChange={nextInput}
                                 style={{ outline: invalidCode ? '1px solid red' : 'none' }}
                             />
                             <input
-                                name='id' id='id' className={styles.authInput} maxLength={1}
-                                onChange={(e) => setCode5(e.target.value)}
+                                name='code5' id='code5' className={styles.authInput} maxLength={1}
+
+                                onPaste={onPaste} onChange={nextInput}
                                 style={{ outline: invalidCode ? '1px solid red' : 'none' }}
                             />
                             <input
-                                name='id' id='id' className={styles.authInput} maxLength={1}
-                                onChange={(e) => setCode6(e.target.value)}
+                                name='code6' id='code6' className={styles.authInput} maxLength={1}
+                                onPaste={onPaste} onChange={nextInput}
                                 style={{ outline: invalidCode ? '1px solid red' : 'none' }}
                             />
                         </div>

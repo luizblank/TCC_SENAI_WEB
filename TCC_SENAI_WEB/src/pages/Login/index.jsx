@@ -92,7 +92,7 @@ export default function Login() {
                             disabled={idError || passwordError ||
                                 id.length != 6 || password.length < 12} 
                         >
-                            Submit
+                            Sign In
                         </button>
                     </form>
                     <div className={styles.error} style={{ display: isError ? 'flex' : 'none' }}>
