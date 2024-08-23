@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import { jwtDecode } from 'jwt-decode';
-import { sign } from 'jsonwebtoken';
 import CryptoJS from "crypto-js";
 import { SECRET } from '../../env';
+import { api } from '../../API/api';
 
 export default function Authentication() {
     const [invalidCode, setInvalidCode] = useState(false);
@@ -19,22 +19,16 @@ export default function Authentication() {
             for (var i = 0; i < 6; i++) {
                 writtenCode += e.target[i].value;
             }
-            
-            const usertoken = sign(
-                {
-                    adm: decoded.adm,
-                    id: decoded.id 
-                },
-                SECRET,
-                {
-                    expiresIn: "1 day",
-                }
-            );
-            const encrypted = CryptoJS.AES.encrypt(usertoken, SECRET);
 
             if (writtenCode == decrypted) {
-                sessionStorage.setItem("usertoken", encrypted);
-                window.open('/', '_self');
+                var token = {};
+                api
+                    .post("/user/getauthuser", decoded.id)
+                    .then((res) => {
+                        console.log(res) // testa e arruma tudo isso aqui, e tambem atualizar o sessionStorage de token pra usertoken 😎
+                    })
+                sessionStorage.setItem("usertoken", "token aqui");
+                // window.open('/', '_self');
             } else {
                 setInvalidCode(true);
             }

@@ -16,7 +16,7 @@ export default function NavBar() {
                 <a href='/' style={{ display: 'flex', alignItems: 'center' }}>
                     <img src={boschlogo} className={styles.boschlogo} alt='Logo Bosch'/>
                 </a>
-                <a href='/login' className={styles.link} style={{ display: token ? 'none' : 'block' }}>Login</a>
+                <a href='/login' className={styles.link} style={{ display: token || window.location.pathname == "/auth" ? 'none' : 'block' }}>Login</a>
                 <a href='/' onClick={logout} className={styles.link} style={{ display: token ? 'block' : 'none' }}>Logout</a>
             </div>
         </div>
