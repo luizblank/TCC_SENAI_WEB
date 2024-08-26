@@ -21,14 +21,13 @@ export default function Authentication() {
             }
 
             if (writtenCode == decrypted) {
-                var token = {};
                 api
-                    .post("/user/getauthuser", decoded.id)
+                    .post("/user/getauthuser", { id: decoded.id })
                     .then((res) => {
-                        console.log(res) // testa e arruma tudo isso aqui, e tambem atualizar o sessionStorage de token pra usertoken 😎
+                        sessionStorage.setItem("usertoken", res.data.jwt);
+                        sessionStorage.removeItem("authtoken");
                     })
-                sessionStorage.setItem("usertoken", "token aqui");
-                // window.open('/', '_self');
+                window.open('/', '_self');
             } else {
                 setInvalidCode(true);
             }

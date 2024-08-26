@@ -2,10 +2,10 @@ import styles from './styles.module.scss';
 import boschlogo from '../../../public/boschlogo.png'
 
 export default function NavBar() {
-    var token = sessionStorage.getItem('token');
+    var token = sessionStorage.getItem('usertoken');
 
     const logout = () => {
-        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("usertoken");
         window.open('/', '_self');
     }
 
