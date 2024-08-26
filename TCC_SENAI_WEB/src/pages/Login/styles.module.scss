@@ -142,6 +142,24 @@ label {
     outline: 0;
 }
 
+.forgeteverything {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgot {
+    color: #007BC0;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.forgot:hover {
+    cursor: pointer;
+    color: #00629a;
+}
+
 @keyframes down-to-up {
     0% {
         bottom: -2vh;
@@ -153,5 +171,17 @@ label {
         bottom: 1.5vh;
         opacity: 1;
         transition: all 350ms linear;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #roberto {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .card {
+        box-shadow: none;
     }
 }

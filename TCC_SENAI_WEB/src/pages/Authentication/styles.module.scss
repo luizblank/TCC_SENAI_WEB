@@ -109,3 +109,11 @@
         transition: all 350ms linear;
     }
 }
+
+@media only screen and (max-width: 460px) {
+    .card {
+        width: 420px;
+        height: auto;
+        box-shadow: none;
+    }
+}

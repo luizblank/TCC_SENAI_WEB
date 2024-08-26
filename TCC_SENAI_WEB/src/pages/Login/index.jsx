@@ -59,7 +59,7 @@ export default function Login() {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.col}>
+                <div className={styles.col} id={styles.roberto}>
                     <img className={styles.roberto} src='roberto.png'/>
                 </div>
                 <div className={styles.col}>
@@ -94,6 +94,9 @@ export default function Login() {
                         >
                             Sign In
                         </button>
+                        <div className={styles.forgeteverything}>
+                            <a className={styles.forgot} onClick={() => window.open('/auth', '_self')}>Forgot your password?</a>
+                        </div>
                     </form>
                     <div className={styles.error} style={{ display: isError ? 'flex' : 'none' }}>
                             <button className={styles.close} onClick={() => { setIsError(!isError) }}>

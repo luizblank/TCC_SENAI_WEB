@@ -239,3 +239,36 @@ h1 {
     outline: 0;
     border: 0;
 }
+
+@media only screen and (max-width: 1024px) {
+    .plant {
+        overflow: scroll;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .plant {
+        display: none;
+    }
+
+    #ct {
+        position: inherit;
+        margin: 0;
+        padding: 0;
+        width: 80%;
+        height: 50px;
+        transform: skew(0, 0);
+        margin-bottom: 5px;
+        border-radius: 10px;
+    }
+
+    #ct:active {
+        background-color: rgba(0, 206, 0, 0.58);
+        border: 2px solid green;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    h1 {
+        margin-top: 50px;
+    }
+}
