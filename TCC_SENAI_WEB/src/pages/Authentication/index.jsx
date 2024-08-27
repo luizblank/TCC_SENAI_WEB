@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styles from './styles.module.scss';
 import { jwtDecode } from 'jwt-decode';
 import CryptoJS from "crypto-js";
-import { SECRET } from '../../env';
 import { api } from '../../API/api';
 
 export default function Authentication() {
@@ -11,9 +10,10 @@ export default function Authentication() {
     const formSubmit = (e) => {
         e.preventDefault();
         try {
+            console.log(import.meta.env.VITE_SECRET)
             const authtoken = sessionStorage.getItem("authtoken");
             const decoded = jwtDecode(JSON.stringify(authtoken));
-            const decrypted = CryptoJS.AES.decrypt(decoded.code, SECRET).toString(CryptoJS.enc.Utf8);
+            const decrypted = CryptoJS.AES.decrypt(decoded.code, import.meta.env.VITE_SECRET).toString(CryptoJS.enc.Utf8);
 
             var writtenCode = ""
             for (var i = 0; i < 6; i++) {

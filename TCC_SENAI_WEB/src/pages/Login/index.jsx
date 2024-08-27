@@ -5,7 +5,6 @@ import { GoAlert } from "react-icons/go";
 import { IoMdClose } from "react-icons/io";
 
 import CryptoJS from "crypto-js";
-import { SECRET } from "../../env"
 
 export default function Login() {
     const [id, setId] = useState('');
@@ -40,7 +39,7 @@ export default function Login() {
     const formSubmit = (e) => {
         e.preventDefault();
         try {
-            const encrypt = CryptoJS.AES.encrypt(password, SECRET).toString();
+            const encrypt = CryptoJS.AES.encrypt(password, import.meta.env.VITE_SECRET).toString();
             api
                 .post('/user/userlogin', { id: id, password: encrypt })
                 .then((res) => {
