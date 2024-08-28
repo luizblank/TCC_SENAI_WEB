@@ -75,7 +75,7 @@ export default function Login() {
                             </div>
                         </div>
                         <div className={styles.input_flex}>
-                            <label>Senha</label>
+                            <label>Password</label>
                             <input
                                 style={{ outline: passwordError ? '1px solid red' : 'none' }}
                                 type='password' name='password' id='password' className={styles.loginInput}

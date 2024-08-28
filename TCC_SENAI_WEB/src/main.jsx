@@ -11,11 +11,12 @@ import Map from "./pages/Map";
 import Login from "./pages/Login";
 import Processes from "./pages/Processes";
 import Authentication from "./pages/Authentication";
+import UpdatePassword from "./pages/UpdatePassword";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Map/>,
+    element: <UpdatePassword/>,
   },
   {
     path: "/processes/:sector",
