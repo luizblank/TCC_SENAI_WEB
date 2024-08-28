@@ -22,7 +22,7 @@ export default function Authentication() {
 
             if (writtenCode == decrypted) {
                 api
-                    .post("/user/getauthuser", { id: decoded.id })
+                    .post("/user/getauthuser", { boschID: decoded.id })
                     .then((res) => {
                         sessionStorage.setItem("usertoken", res.data.jwt);
                         sessionStorage.removeItem("authtoken");

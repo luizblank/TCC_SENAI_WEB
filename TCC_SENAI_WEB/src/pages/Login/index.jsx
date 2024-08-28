@@ -36,8 +36,7 @@ export default function Login() {
         }
     }, [password])
 
-    const formSubmit = (e) => {
-        e.preventDefault();
+    const formSubmit = () => {
         try {
             const encrypt = CryptoJS.AES.encrypt(password, import.meta.env.VITE_SECRET).toString();
             api
@@ -98,11 +97,11 @@ export default function Login() {
                         </div>
                     </form>
                     <div className={styles.error} style={{ display: isError ? 'flex' : 'none' }}>
-                            <button className={styles.close} onClick={() => { setIsError(!isError) }}>
-                                <IoMdClose/>
-                            </button>
-                            <GoAlert style={{ marginRight: '15px', strokeWidth: 1 }}/>
-                            { resError }
+                        <button className={styles.close} onClick={() => { setIsError(!isError) }}>
+                            <IoMdClose/>
+                        </button>
+                        <GoAlert style={{ marginRight: '15px', strokeWidth: 1 }}/>
+                        { resError }
                     </div>
                 </div>
             </div>
