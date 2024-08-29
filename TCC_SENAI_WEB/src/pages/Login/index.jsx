@@ -36,7 +36,8 @@ export default function Login() {
         }
     }, [password])
 
-    const formSubmit = () => {
+    const formSubmit = (e) => {
+        e.preventDefault();
         try {
             const encrypt = CryptoJS.AES.encrypt(password, import.meta.env.VITE_SECRET).toString();
             api
@@ -71,7 +72,7 @@ export default function Login() {
                                 onChange={(e) => setId(e.target.value)}
                             />
                             <div style={{ position: 'relative' }}>
-                                <div className={styles.input_error} style={{ display: idError ? 'block' : 'none' }}>Usuário inválido</div>
+                                <div className={styles.input_error} style={{ display: idError ? 'block' : 'none' }}>Invalid user</div>
                             </div>
                         </div>
                         <div className={styles.input_flex}>
@@ -82,7 +83,7 @@ export default function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <div style={{ position: 'relative' }}>
-                                <div className={styles.input_error} style={{ display: passwordError ? 'block' : 'none' }}>Senha inválida</div>
+                                <div className={styles.input_error} style={{ display: passwordError ? 'block' : 'none' }}>Invalid password</div>
                             </div>
                         </div>
                         <button

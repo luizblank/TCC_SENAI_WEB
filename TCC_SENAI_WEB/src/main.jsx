@@ -16,7 +16,7 @@ import UpdatePassword from "./pages/UpdatePassword";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <UpdatePassword/>,
+    element: <Map/>,
   },
   {
     path: "/processes/:sector",
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
     path: "/auth",
     element: <Authentication/>,
   },
+  {
+    path: "/update/:hash",
+    element: <UpdatePassword/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

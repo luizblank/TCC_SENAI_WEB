@@ -3,26 +3,26 @@ import { useState, useEffect } from "react";
 import error from "../../../public/error.png"
 import io from "socket.io-client";
 
-const socket = io("http://10.196.49.4:5000");
+// const socket = io("http://10.196.49.4:5000");
 
 const VideoStream = () => {
-    const [image, setImage] = useState("");
+    // const [image, setImage] = useState("");
 
-    const errorChange = () => {
-        setImage(error);
-    }
+    // const errorChange = () => {
+    //     setImage(error);
+    // }
 
-    useEffect(() => {
-    socket.on("video_feed", (frameBase64) => {
-        setImage(`data:image/jpeg;base64,${frameBase64}`);
-    });
+    // useEffect(() => {
+    // socket.on("video_feed", (frameBase64) => {
+    //     setImage(`data:image/jpeg;base64,${frameBase64}`);
+    // });
 
-    return () => {
-        socket.off("video_feed");
-    };
-    }, []);
+    // return () => {
+    //     socket.off("video_feed");
+    // };
+    // }, []);
 
-    return <img src={image} alt="Vídeo" className={styles.cam} onError={errorChange}/>;
+    // return <img src={image} alt="Vídeo" className={styles.cam} onError={errorChange}/>;
 };
 
 export default VideoStream;
