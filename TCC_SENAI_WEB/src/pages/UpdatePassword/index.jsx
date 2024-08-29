@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
-
+import CryptoJS from 'crypto-js';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { api } from '../../API/api';
 
 export default function UpdatePassword() {
     const [passwordIcon, setPasswordIcon] = useState(true);
@@ -52,7 +53,16 @@ export default function UpdatePassword() {
         e.preventDefault();
         const path = window.location.pathname.split('/')
         const hash = path[path.length - 1]
-        console.log(hash)
+        const encrypted = CryptoJS.AES.encrypt(password, import.meta.env.VITE_SECRET).toString();
+        
+        api
+            .post("/user/newpassword/", { boschID: hash, newPassword: encrypted })
+            .then((res) => {
+                window.open('/login', '_self');
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     return (
