@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import Processes from "./pages/Processes";
 import Authentication from "./pages/Authentication";
 import UpdatePassword from "./pages/UpdatePassword";
+import SendEmail from "./pages/SendEmail";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/update/:hash",
     element: <UpdatePassword/>
+  },
+  {
+    path: "/sendverification",
+    element: <SendEmail/>
   }
 ]);
 

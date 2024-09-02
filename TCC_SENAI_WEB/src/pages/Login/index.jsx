@@ -94,7 +94,7 @@ export default function Login() {
                             Sign In
                         </button>
                         <div className={styles.forgeteverything}>
-                            <a className={styles.forgot} onClick={() => window.open('/auth', '_self')}>Forgot your password?</a>
+                            <a className={styles.forgot} onClick={() => window.open('/sendverification', '_self')}>Forgot your password?</a>
                         </div>
                     </form>
                     <div className={styles.error} style={{ display: isError ? 'flex' : 'none' }}>
