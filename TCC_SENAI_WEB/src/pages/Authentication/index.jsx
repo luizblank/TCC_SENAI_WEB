@@ -117,7 +117,7 @@ export default function Authentication() {
                             <div className={styles.submitBtnText} style={{ display: isWaiting ? 'none' : 'block' }}>
                                 Submit
                             </div>
-                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.svg'/>
+                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.gif'/>
                         </button>
                     </form>
                 </div>
