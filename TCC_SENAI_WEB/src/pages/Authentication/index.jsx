@@ -19,15 +19,14 @@ export default function Authentication() {
             for (var i = 0; i < 6; i++) {
                 writtenCode += e.target[i].value;
             }
-
             if (writtenCode == decrypted) {
                 api
                     .post("/user/getauthuser", { boschID: decoded.id })
                     .then((res) => {
                         sessionStorage.setItem("usertoken", res.data.jwt);
                         sessionStorage.removeItem("authtoken");
+                        window.open('/', '_self');
                     })
-                window.open('/', '_self');
             } else {
                 setInvalidCode(true);
             }
