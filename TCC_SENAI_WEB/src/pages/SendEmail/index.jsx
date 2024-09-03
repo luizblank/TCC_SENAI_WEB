@@ -8,10 +8,21 @@ export default function SendEmail() {
     const [emailError, setEmailError] = useState(false);
     const [sent, setSent] = useState(false);
 
-    const formSubmit = async (e) => {
+    const [isWaiting, setIsWaiting] = useState(false);
+
+    const formSubmit = (e) => {
         e.preventDefault();
-        await api.post("/user/sendemail", { email: email });
-        setSent(true);
+        setIsWaiting(true);
+        api
+            .post("/user/sendemail", { email: email })
+            .then((res) => {
+                setIsWaiting(false);
+                setSent(true);
+            })
+            .catch((res) => {
+                setIsWaiting(false);
+                setSent(true);
+            })
     }
 
     const sendBack = (e) => {
@@ -65,9 +76,12 @@ export default function SendEmail() {
                         </div>
                         <button
                             className={styles.submitBtn}
-                            disabled={!email || emailError} 
+                            disabled={!email || emailError || isWaiting} 
                         >
-                            Send
+                            <div className={styles.submitBtnText} style={{ display: isWaiting ? 'none' : 'block' }}>
+                                Send
+                            </div>
+                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.svg'/>
                         </button>
                     </form>
                     <form className={styles.card} onSubmit={sendBack} autoComplete='off' style={{ display: sent ? 'block' : 'none'}}>

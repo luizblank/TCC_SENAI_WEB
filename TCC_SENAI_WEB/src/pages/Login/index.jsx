@@ -16,6 +16,8 @@ export default function Login() {
     const [isError, setIsError] = useState(undefined);
     const [resError, setResError] = useState('');
 
+    const [isWaiting, setIsWaiting] = useState(false);
+
     useEffect(() => {
         if (!id)
             return;
@@ -40,15 +42,18 @@ export default function Login() {
         e.preventDefault();
         try {
             const encrypt = CryptoJS.AES.encrypt(password, import.meta.env.VITE_SECRET).toString();
+            setIsWaiting(true);
             api
                 .post('/user/userlogin', { id: id, password: encrypt })
                 .then((res) => {
                     sessionStorage.setItem("authtoken", res.data.jwt);
+                    setIsWaiting(false);
                     window.open('/auth', '_self');
                 })
                 .catch((res) => {
                     setResError(res.response.data.error);
                     setIsError(true);
+                    setIsWaiting(false);
                 })
         } catch(error) {
             console.log(error)
@@ -88,10 +93,16 @@ export default function Login() {
                         </div>
                         <button
                             className={styles.submitBtn}
-                            disabled={idError || passwordError ||
-                                id.length != 6 || password.length < 12} 
+                            disabled={
+                                idError || passwordError ||
+                                id.length != 6 || password.length < 12 ||
+                                isWaiting
+                            } 
                         >
-                            Sign In
+                            <div className={styles.submitBtnText} style={{ display: isWaiting ? 'none' : 'block' }}>
+                                Sign In
+                            </div>
+                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.svg'/>
                         </button>
                         <div className={styles.forgeteverything}>
                             <a className={styles.forgot} onClick={() => window.open('/sendverification', '_self')}>Forgot your password?</a>

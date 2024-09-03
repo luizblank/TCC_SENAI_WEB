@@ -14,6 +14,8 @@ export default function UpdatePassword() {
     const [passwordError, setPasswordError] = useState(false);
     const [confPasswordError, setConfPasswordError] = useState(false);
 
+    const [isWaiting, setIsWaiting] = useState(false);
+
     useEffect(() => {
         if (!password)
             return;
@@ -54,14 +56,17 @@ export default function UpdatePassword() {
         const path = window.location.pathname.split('/')
         const hash = path[path.length - 1]
         const encrypted = CryptoJS.AES.encrypt(password, import.meta.env.VITE_SECRET).toString();
-        
+
+        setIsWaiting(true);
         api
             .post("/user/newpassword/", { boschID: hash, newPassword: encrypted })
             .then((res) => {
+                setIsWaiting(false);
                 window.open('/login', '_self');
             })
             .catch((err) => {
                 console.log(err);
+                setIsWaiting(false);
             })
     }
 
@@ -103,11 +108,16 @@ export default function UpdatePassword() {
                         </div>
                         <button
                             className={styles.submitBtn}
-                            disabled={passwordError || confPasswordError ||
-                                password < 12 || confPassword < 12
+                            disabled={
+                                passwordError || confPasswordError ||
+                                password < 12 || confPassword < 12 ||
+                                isWaiting
                             } 
                         >
-                            Change password
+                            <div className={styles.submitBtnText} style={{ display: isWaiting ? 'none' : 'block' }}>
+                                Change Password
+                            </div>
+                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.svg'/>
                         </button>
                     </form>
                 </div>

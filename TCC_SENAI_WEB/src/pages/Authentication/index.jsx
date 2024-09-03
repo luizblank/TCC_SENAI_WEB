@@ -7,6 +7,8 @@ import { api } from '../../API/api';
 export default function Authentication() {
     const [invalidCode, setInvalidCode] = useState(false);
 
+    const [isWaiting, setIsWaiting] = useState(false);
+
     const formSubmit = (e) => {
         e.preventDefault();
         try {
@@ -20,12 +22,17 @@ export default function Authentication() {
                 writtenCode += e.target[i].value;
             }
             if (writtenCode == decrypted) {
+                setIsWaiting(true);
                 api
                     .post("/user/getauthuser", { boschID: decoded.id })
                     .then((res) => {
                         sessionStorage.setItem("usertoken", res.data.jwt);
                         sessionStorage.removeItem("authtoken");
+                        setIsWaiting(false)
                         window.open('/', '_self');
+                    })
+                    .catch((res) => {
+                        setIsWaiting(false);
                     })
             } else {
                 setInvalidCode(true);
@@ -105,8 +112,12 @@ export default function Authentication() {
                         </div>
                         <button
                             className={styles.submitBtn}
+                            disabled={isWaiting}
                         >
-                            Submit
+                            <div className={styles.submitBtnText} style={{ display: isWaiting ? 'none' : 'block' }}>
+                                Submit
+                            </div>
+                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.svg'/>
                         </button>
                     </form>
                 </div>
