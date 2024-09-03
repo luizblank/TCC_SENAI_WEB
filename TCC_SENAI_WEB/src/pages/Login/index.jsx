@@ -102,7 +102,7 @@ export default function Login() {
                             <div className={styles.submitBtnText} style={{ display: isWaiting ? 'none' : 'block' }}>
                                 Sign In
                             </div>
-                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.gif'/>
+                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.svg'/>
                         </button>
                         <div className={styles.forgeteverything}>
                             <a className={styles.forgot} onClick={() => window.open('/sendverification', '_self')}>Forgot your password?</a>

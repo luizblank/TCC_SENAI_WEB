@@ -81,7 +81,7 @@ export default function SendEmail() {
                             <div className={styles.submitBtnText} style={{ display: isWaiting ? 'none' : 'block' }}>
                                 Send
                             </div>
-                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.gif'/>
+                            <img style={{ display: isWaiting ? 'block' : 'none' }} className={styles.loading} src='./../../../public/loading.svg'/>
                         </button>
                     </form>
                     <form className={styles.card} onSubmit={sendBack} autoComplete='off' style={{ display: sent ? 'block' : 'none'}}>
