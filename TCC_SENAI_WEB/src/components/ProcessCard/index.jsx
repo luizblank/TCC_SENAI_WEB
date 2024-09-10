@@ -16,9 +16,9 @@ export default function ProcessCard({ process, red, blue, rejected, scanned }) {
                         <div className={styles.card_title}>Process { process }</div>
                     </div>
                     <div>
-                        <div className={styles.card_content}>Reds today: { red }</div>
-                        <div className={styles.card_content}>Blues today: { blue }</div>
-                        <div className={styles.card_content}>Rejected today: { rejected }</div>
+                        <div className={styles.card_content}>Red: { red }</div>
+                        <div className={styles.card_content}>Blue: { blue }</div>
+                        <div className={styles.card_content}>Rejected: { rejected }</div>
                         <div className={styles.card_content}>Scanned today: { scanned }</div>
                     </div>
                     <div/>

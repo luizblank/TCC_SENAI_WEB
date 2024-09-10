@@ -49,7 +49,7 @@ export default function Processes() {
                 { 
                     data.length > 0 && 
                     data.map((item, i) => {
-                        return <ProcessCard red={item.Red} blue={item.Blue} rejected={item.Rejected} scanned={item.Scanned} key={i}/>
+                        return <ProcessCard process={item.Process} red={item.Red} blue={item.Blue} rejected={item.Rejected} scanned={item.Scanned} key={i}/>
                     })
                 }
                 {
