@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react"
 import "./index.css";
 
 import NavBar from "./components/NavBar";
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Analytics/>
     <NavBar/>
     <RouterProvider router={router} />
   </React.StrictMode>
