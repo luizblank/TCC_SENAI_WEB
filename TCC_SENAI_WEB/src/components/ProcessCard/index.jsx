@@ -3,7 +3,7 @@ import processo from '../../../public/processo.png'
 import VideoStream from '../VideoStream';
 
 // eslint-disable-next-line react/prop-types
-export default function ProcessCard({ process, approved, denied, scanned }) {
+export default function ProcessCard({ process, red, blue, rejected, scanned }) {
     return (
         <>
             <div className={styles.container}>
@@ -16,9 +16,10 @@ export default function ProcessCard({ process, approved, denied, scanned }) {
                         <div className={styles.card_title}>Process { process }</div>
                     </div>
                     <div>
-                        <div className={styles.card_content}>Approved today: { approved }</div>
-                        <div className={styles.card_content}>Denied today: { denied }</div>
-                        <div className={styles.card_content}>Scanned today: { scanned}</div>
+                        <div className={styles.card_content}>Reds today: { red }</div>
+                        <div className={styles.card_content}>Blues today: { blue }</div>
+                        <div className={styles.card_content}>Rejected today: { rejected }</div>
+                        <div className={styles.card_content}>Scanned today: { scanned }</div>
                     </div>
                     <div/>
                 </div>
