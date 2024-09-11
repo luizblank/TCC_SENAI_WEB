@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import processo from '../../../public/processo.png'
+import processo from '/processo.png'
 import VideoStream from '../VideoStream';
 
 // eslint-disable-next-line react/prop-types

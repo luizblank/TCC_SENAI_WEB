@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { useState, useEffect } from "react";
-import error from "../../../public/error.png"
+import error from "/error.png"
 import io from "socket.io-client";
 
 // const socket = io("http://10.196.49.4:5000");

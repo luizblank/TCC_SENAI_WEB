@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import boschlogo from '../../../public/boschlogo.png'
+import boschlogo from '/boschlogo.png'
 
 export default function NavBar() {
     var token = sessionStorage.getItem('usertoken');
