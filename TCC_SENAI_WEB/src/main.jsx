@@ -15,6 +15,7 @@ import Processes from "./pages/Processes";
 import Authentication from "./pages/Authentication";
 import UpdatePassword from "./pages/UpdatePassword";
 import SendEmail from "./pages/SendEmail";
+import Report from "./pages/Report";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/processes/:sector",
     element: <Processes/>,
+  },
+  {
+  path: "/report/:sector",
+  element: <Report/>,
   },
   {
     path: "/login",
@@ -40,7 +45,7 @@ const router = createBrowserRouter([
   {
     path: "/sendverification",
     element: <SendEmail/>
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
