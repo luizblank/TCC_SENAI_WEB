@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <Processes/>,
   },
   {
-  path: "/report/:sector",
+  path: "/reports/:sector",
   element: <Report/>,
   },
   {

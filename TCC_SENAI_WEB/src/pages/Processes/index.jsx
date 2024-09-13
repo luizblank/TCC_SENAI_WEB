@@ -28,6 +28,10 @@ export default function Processes() {
         setData(dataSave.filter((data) => data.Process.includes(e.target.value)));
     }
 
+    const openReports = () => {
+        window.open(`/reports/${sector}`, "_self");
+    }
+
     return (
         <>
             <div className={styles.container}>
@@ -44,6 +48,11 @@ export default function Processes() {
                             />
                             <FaSearch/>
                         </div>
+                        <button
+                            type='button'
+                            className={styles.openReports}
+                            onClick={openReports}
+                        >Reports</button>
                     </div>
                 </div>
                 { 
