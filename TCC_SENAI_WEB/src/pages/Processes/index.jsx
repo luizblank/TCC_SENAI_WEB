@@ -16,8 +16,12 @@ export default function Processes() {
 
     useEffect(() => {
         let user = sessionStorage.getItem('usertoken')
-        user = jwtDecode(user).user;
-        setIsAdm(user.adm);
+        if (user) {
+            user = jwtDecode(user).user;
+            setIsAdm(user.adm);
+            return;
+        }
+        setIsAdm(false);
     })
 
     useEffect(() => {
