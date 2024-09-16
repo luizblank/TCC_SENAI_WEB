@@ -3,13 +3,22 @@ import { useEffect, useState } from 'react';
 import ProcessCard from '../../components/ProcessCard';
 import styles from './styles.module.scss';
 import { FaSearch } from "react-icons/fa";
+import CryptoJS from 'crypto-js';
+import { jwtDecode } from 'jwt-decode';
 import { api } from '../../API/api';
 
 export default function Processes() {
     const [data, setData] = useState([]);
     const [dataSave, setDataSave] = useState([])
+    const [isAdm, setIsAdm] = useState(false);
     const { sector } = useParams();
     const displaySector = "Ct-" + sector.slice(2);
+
+    useEffect(() => {
+        let user = sessionStorage.getItem('usertoken')
+        user = jwtDecode(user).user;
+        setIsAdm(user.adm);
+    })
 
     useEffect(() => {
         api
@@ -50,6 +59,7 @@ export default function Processes() {
                         </div>
                         <button
                             type='button'
+                            style={{ display: isAdm ? 'flex' : 'none' }}
                             className={styles.openReports}
                             onClick={openReports}
                         >Reports</button>
