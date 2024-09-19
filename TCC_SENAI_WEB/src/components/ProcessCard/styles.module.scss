@@ -25,7 +25,7 @@
     color: black;
 }
 
-.row {
+.header {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -48,4 +48,33 @@
     font-size: 20px;
     font-weight: 500;
     margin: 10px 0;
+}
+
+
+@media only screen and (max-width: 460px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .cam {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .header {
+        justify-content: left;
+
+        img {
+            margin-right: 10px;
+        }
+    }
 }

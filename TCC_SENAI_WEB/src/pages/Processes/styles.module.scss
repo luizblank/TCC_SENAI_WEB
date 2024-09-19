@@ -82,3 +82,9 @@
 .openReports:disabled:hover {
     background-color: #007BC0;
 }
+
+@media only screen and (max-width: 460px) {
+    .nav {
+        margin-bottom: 20px;
+    }
+}

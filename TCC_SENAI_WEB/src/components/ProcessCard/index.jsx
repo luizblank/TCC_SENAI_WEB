@@ -11,7 +11,7 @@ export default function ProcessCard({ process, red, blue, rejected, scanned }) {
                     <VideoStream/>
                 </div>
                 <div className={styles.card}>
-                    <div className={styles.row}>
+                    <div className={styles.header}>
                         <img src={processo} className={styles.card_image}/>
                         <div className={styles.card_title}>Process { process }</div>
                     </div>
