@@ -8,7 +8,7 @@ export default function ProcessCard({ process, red, blue, rejected, scanned }) {
         <>
             <div className={styles.container}>
                 <div className={styles.cam}>
-                    <VideoStream/>
+                    <VideoStream crrProcess={process}/>
                 </div>
                 <div className={styles.card}>
                     <div className={styles.header}>
